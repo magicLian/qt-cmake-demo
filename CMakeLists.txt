@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/ui)
 
 # Find the required Qt packages
 find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
@@ -24,13 +25,18 @@ set(HEADERS
     include/mainwindow.h
 )
 
+# Add UI files
+set(UI_FILES
+    ui/mainwindow.ui
+)
+
 # Add resource files if any
 set(RESOURCES
     resources/resources.qrc
 )
 
 # Add the executable
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS} ${RESOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS} ${UI_FILES} ${RESOURCES})
 
 # Link Qt libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE

@@ -3,16 +3,14 @@
 
 #include <QMainWindow>
 
-class QLabel;
-class QPushButton;
-class QTabWidget;
-class QListView;
-class QTableView;
+// 前向声明
 class QStandardItemModel;
-class QLineEdit;
-class QStatusBar;
-class QMenu;
-class QAction;
+
+// 命名空间Ui包含所有由uic自动生成的界面类
+namespace Ui
+{
+    class MainWindow;
+}
 
 class MainWindow : public QMainWindow
 {
@@ -33,39 +31,15 @@ private slots:
     void onExitAction();
 
 private:
-    void createMenus();
-    void createTabWidgets();
-    void createBasicTab();
-    void createListTab();
-    void createTableTab();
-    void createStatusBar();
+    void setupModels();
+    void setupConnections();
 
-    // Main widgets
-    QTabWidget *m_tabWidget;
-    QStatusBar *m_statusBar;
+    // UI指针，由Qt自动管理
+    Ui::MainWindow *ui;
 
-    // Menu items
-    QMenu *m_fileMenu;
-    QMenu *m_helpMenu;
-    QAction *m_exitAction;
-    QAction *m_aboutAction;
-
-    // Basic tab widgets
-    QLabel *m_label;
-    QPushButton *m_button;
-
-    // List tab widgets
-    QListView *m_listView;
+    // Model(s)
     QStandardItemModel *m_listModel;
-    QLineEdit *m_itemEdit;
-    QPushButton *m_addButton;
-    QPushButton *m_removeButton;
-
-    // Table tab widgets
-    QTableView *m_tableView;
     QStandardItemModel *m_tableModel;
-    QPushButton *m_addRowButton;
-    QPushButton *m_removeRowButton;
 };
 
 #endif // MAINWINDOW_H

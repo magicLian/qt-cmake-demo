@@ -13,17 +13,16 @@ A simple Qt application built with CMake.
 1. Create a build directory:
    ```
    mkdir build
-   cd build
    ```
 
 2. Configure the project:
    ```
-   cmake ..
+   cmake -G "minGW Makefiles" -D CMAKE_PREFIX_PATH=xxxx -B build -S .
    ```
 
 3. Build the project:
    ```
-   cmake --build .
+   cmake --build build
    ```
 
 ## Running the Application
