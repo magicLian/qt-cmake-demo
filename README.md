@@ -17,12 +17,16 @@ A Qt application built with CMake, demonstrating the integration of Qt with CMak
 
 2. Configure the project:
    ```
-   cmake -G "MinGW Makefiles" -DCMAKE_PREFIX_PATH=<Qt installation path> -B build -S .
+   cmake -G "MinGW Makefiles" -DCMAKE_PREFIX_PATH=<Qt installation path> -DCMAKE_BUILD_TYPE=Release -B build -S .
    ```
    
 3. Build the project:
    ```
    cmake --build build
+   ```
+4. Deploy the application:
+   ```
+   windeployqt build/QtCMakeDemo.exe
    ```
 
 ## Running the Application
